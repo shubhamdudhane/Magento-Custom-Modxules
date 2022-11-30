@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="srtech" translate="label" sortOrder="10">
+            <label>SrTech</label>
+        </tab>
+        <section id="helloworld" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>General</label>
+            <tab>srtech</tab>
+            <resource>Mageplaza_HelloWorld::helloworld_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Name</label>
+                    <comment>Enter Your Name.</comment>
+                </field>
+            </group>
+        </section>
+        <section id="sms" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>SMS</label>
+            <tab>srtech</tab>
+            <resource>Mageplaza_HelloWorld::helloworld_config</resource>
+            <group id="smsgeneral" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>SMS Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>SMS Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="apikey" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>API Key</label>
+                    <comment>Enter Your API KEY.</comment>
+                </field>
+                 <field id="adminnumber" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label> Admin Number</label>
+                    <comment>Enter Your Admin Numbers.</comment>
+                </field>
+                <field id="sendername" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Sender Name</label>
+                    <comment>Enter Your Sender Name.</comment>
+                </field>
+                <field id="order_message_template" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Order Message Template</label>
+                    <comment>Enter Your Message.</comment>
+                </field>
+                <field id="order_invoice_template" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Invoice Message Template</label>
+                    <comment>Enter Your Message.</comment>
+                </field>
+                <field id="customer_registration_template" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Customer Registration Message Template</label>
+                    <comment>Enter Your Message.</comment>
+                </field>
+                 <field id="admin_order_message_template" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Admin Order Message Template</label>
+                    <comment>Enter Your Message.</comment>
+                </field>
+                <field id="admin_order_invoice_template" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Admin Invoice Message Template</label>
+                    <comment>Enter Your Message.</comment>
+                </field>
+                <field id="admin_customer_registration_template" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Admin Customer Registration Message Template</label>
+                    <comment>Enter Your Message.</comment>
+                </field>
+                <field id="url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>URL</label>
+                    <comment>Enter Your URL.</comment>
+                </field>
+                <field id="vendor_multiselect" translate="label comment" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Events</label>
+                    <source_model>Learning\FirstUnit\Model\Config\Multiselect</source_model>
+                </field>
+
+                <field id="shiploginposturlapicurrior" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ship Login Post URL API Currior</label>
+                    <comment>Enter Ship Login Post Your API Currior URL.</comment>
+                </field>
+                <field id="shipgeturlapicurrior" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ship Get URL API Currior</label>
+                    <comment>Enter Ship Get Your API Currior URL.</comment>
+                </field>
+                <field id="shipapilogincurrioremail" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ship API Login Email</label>
+                    <comment>Enter Your Ship API Login Email.</comment>
+                </field>
+                <field id="shipapilogincurriorpassword" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ship API Login Password</label>
+                    <comment>Enter Your Ship API Login Password.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

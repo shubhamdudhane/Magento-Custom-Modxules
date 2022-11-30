@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="members" resource="default" engine="innodb" comment="Custom Members New Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Id"/>
+        <column xsi:type="varchar" name="full_names" nullable="true" length="50" comment="Full name"/>
+         <column xsi:type="varchar" name="gender" nullable="true" length="6" comment="gender"/>
+        <column xsi:type="varchar" name="postal_address" nullable="true" length="255" comment="postal_address"/>
+        <column xsi:type="varchar" name="contact_number" nullable="true" length="75" comment="contact_number"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="255" comment="Email"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Updated At"/>
+        <column xsi:type="smallint" name="is_active" padding="5" unsigned="true" nullable="false" identity="false"
+                default="1" comment="Is Active"/>
+        <column xsi:type="date" name="dob" comment="Date of Birth"/>
+        <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+    <title></title>
+        <script src="Learning_FirstUnit::js/custom.js"/>    <!-- path of js file -->
+    </head>
+    <body>
+        <referenceContainer name="content">
+    <!-- Here we declare the path of Article Block and phtml template file -->
+             <block class="Learning\FirstUnit\Block\Main" name="firstunit" template="Learning_FirstUnit::show.phtml" cacheable="false">
+            </block>
+         </referenceContainer>          
+    </body>
+</page>

@@ -1,0 +1,114 @@
+<?php
+
+// fetching data from edit block from getEditData function
+$model = $block->getEditData();
+$model->getId('id');
+    $fullName = $model->getFullNames();
+    $Dob = $model->getDob();
+    $gender = $model->getGender();
+    $PostalAddress = $model->getPostalAddress();
+    $email = $model->getEmail();
+    $ContactNumber = $model->getContactNumber();
+    $description = $model->getDescription();
+?>
+
+<!-- Update and edit form action on same page  -->
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="post" id="addData" class="form"
+              action="<?php echo $this->getFormAction(); ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset">
+                <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Detail')) ?></span></legend>
+                <fieldset class="fieldset row">
+                    <?php
+                    if ($model->getId()) {
+                        ?>
+                        <input type="hidden" name="id" value="<?php echo $model->getId(); ?>">
+                        <?php
+                    } else {
+                        ?>
+                        <input type="hidden" name="id" id="id" value="">
+                        <?php
+                    } ?>
+                    <div class="fields col-md-6">
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('Full Name')) ?></span></label>
+                            <div class="control">
+                                <input name="full_names" id="full_names" title="Full Name" value="<?php echo $fullName ?>" class="input-text"
+                                        type="text"
+                                        data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Dob')) ?></span></label>
+                            <div class="control">
+                                <input name="dob" id="datepicker" class="datepicker" title="Dob"
+                                        value="<?php echo $Dob; ?>" class="input-text"
+                                        type="text" data-validate="{required:true}">
+                            </div>           
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('Gender')) ?></span></label>
+                            <div class="control">
+                                <input name="gender" id="datepicker" title="Gender" value="<?php echo $gender ?>" class       ="input-text"
+                                       type="text"
+                                       data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                            </div>
+                        </div>
+                         <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('Address')) ?></span></label>
+                            <div class="control">
+                                <input name="postal_address" id="postal_address" title="Address" value="<?php echo $PostalAddress ?>" class="input-text"
+                                       type="text"
+                                       data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('Email')) ?></span></label>
+                            <div class="control">
+                                <input name="email" id="email" title="Email" value="<?php echo $email; ?>"
+                                       class="input-text" type="text"
+                                       data-validate="{required:true, 'validate-email':true}">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Contact Number')) ?></span></label>
+                            <div class="control">
+                                <input name="contact_number" id="contact_number" title="ContactNumber"
+                                       value="<?php echo $ContactNumber; ?>" class="input-text"
+                                       type="text" data-validate="{required:true}">
+                            </div>
+                        </div>
+                          <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Description')) ?></span></label>
+                            <div class="control">
+                                <input name="description" id="description" title="Description"
+                                       value="<?php echo $description; ?>" class="input-text"
+                                       type="text" data-validate="{required:true}">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="Submit"><span><?php echo $block->
+                            escapeHtmlAttr(__('Save')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- script used for date (datepicker). -->
+<script type="text/javascript">
+require(["jquery", "mage/calendar"], function ($) {
+       $('#datepicker').datepicker();
+    } );
+</script>

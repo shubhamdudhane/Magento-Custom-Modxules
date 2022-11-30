@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="SRTechnologies_orderstatus::css/cust.css"/>    <!-- path of css file -->
+        <script src="SRTechnologies_orderstatus::js/cust.js"/>     <!-- path of js file -->
+    </head>
+    <body>
+        <referenceContainer name="content">
+    <!-- Here we declare the path of Article Block and phtml template file -->
+             <block class="SRTechnologies\OrderStatus\Block\Main" name="orderstatus" template="SRTechnologies_OrderStatus::show.phtml" cacheable="false">
+            </block>
+         </referenceContainer>              
+    </body>
+</page>

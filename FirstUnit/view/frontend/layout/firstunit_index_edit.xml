@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Learning_FirstUnit::js/custom.js"/>   <!-- path of js file -->
+    </head>
+<body>
+	<!-- Here we declare the path of Edit Block and phtml template file -->
+    <referenceContainer name="content">
+        <block class="Learning\FirstUnit\Block\Edit" name="firstunit" template="Learning_FirstUnit::insertdata.phtml"/>
+    </referenceContainer>
+</body>
+</page>

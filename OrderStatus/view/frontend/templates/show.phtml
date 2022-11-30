@@ -1,0 +1,78 @@
+<?php
+
+    $orderCollection = $block->getOrderCollection();  
+?>
+
+ <section class="custom-social-proof">
+    <div class="custom-notification">
+      <div class="custom-notification-container">
+        <div class="custom-notification-image-wrapper">
+       
+           <img id="map" src="" style="width: 50px; height: 50px">
+        </div>
+        <div class="custom-notification-content-wrapper">
+          <p class="custom-notification-content" >
+             <span id="customer"> </span> From India <br>  recently Order <span id="product">  </span> <span id="totalqty"> purchased </span>
+          </p>
+        </div>
+      </div>
+      <div class="custom-close"></div>
+    </div>
+
+     <script type="text/javascript">
+require(["jquery"], function ($) {
+       $('.custom-notification').hide();
+       var product = new Array();
+       var map = new Array();
+       var customer = new Array();
+       var totalqty = new Array();
+       var count = 0;
+       var countmap = 0;
+       var countqty = 0;
+       var countcustomer = 0;
+
+      <?php $i = 0; $j = 0; $K = 0; foreach ($orderCollection as $orderItem):
+      $firstname = $orderItem->getCustomerFirstName();
+      $lastname = $orderItem->getCustomerLastName(); 
+      $totalqty = $orderItem->getTotalQtyOrdered();  ?>
+      
+      customer[ <?php echo $j; ?>] = "<?php echo $firstname." ".$lastname." ";?>";
+      countcustomer = customer.length;
+
+      totalqty[ <?php echo $K; ?>] = "<?php echo $totalqty . " "; ?>";
+      countqty = totalqty.length;
+      <?php
+      foreach ($orderItem->getAllItems() as $item): 
+       
+          $productId =  $item->getProductId(); 
+
+            $product=$this->getProduct($productId); 
+            $imageUrl = $product->getMediaConfig()->getMediaUrl($product->getImage()); 
+      ?>
+      
+      product[<?php  echo $i;?>] = "<?php echo $item->getName(); ?>";
+      count = product.length;
+
+      map[<?php echo $i; ?>] = "<?php echo $imageUrl; ?>";
+      countmap = map.length;
+      <?php $i++;  $K++; endforeach; 
+        $j++; endforeach; ?>
+
+     setInterval(function(){ $(".custom-social-proof").stop().slideToggle('slow'); }, 3000);
+      $(".custom-close").click(function() {
+        $(".custom-social-proof").stop().slideToggle('slow');
+      });
+      setInterval(function(){ 
+      $('.custom-notification').show();
+      var myNumber = Math.floor(7*Math.random());
+
+      $("#map").attr("src",map[Math.floor(countmap*Math.random())]);
+      $('#product').text(product[Math.floor(count*Math.random())]);
+      $('#customer').text(customer[Math.floor(countcustomer*Math.random())]);
+      $('#totalqty').text(totalqty[Math.floor(countqty*Math.random())]);
+
+ }, 6000);
+    } );
+</script>
+
+</section>

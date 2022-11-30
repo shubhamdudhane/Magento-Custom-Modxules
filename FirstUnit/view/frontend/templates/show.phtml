@@ -1,0 +1,36 @@
+<?php $newsCollection =  $block->getModelData();?>   <!-- getModelData() fetching data from Article Block --> 
+    <a href="<?php echo $block->getUrl('firstunit/index/edit'); ?>" class="action primary">New Register</a>
+<table>
+    <!-- Table created for Showing data from databse on Ui  -->
+    <tr>
+        <th>Sr No.</th>
+        <th>Full Name</th>
+        <th>Date Of Birth</th>
+        <th>Gender</th>
+        <th>Postal Address</th>
+        <th>Contact Number</th>
+        <th>Email</th>
+        <th>Description</th>        
+        <th colspan="2" align="center">Action</th>
+    </tr>
+    <?php
+   foreach ($newsCollection->getData() as $items) {
+        echo "<tr>";
+        echo "<td>" .$items['id'] . "</td>";
+        echo "<td>" .$items['full_names'] . "</td>";
+        echo "<td>" .$items['dob'] . "</td>";     
+        echo "<td>" .$items['gender'] . "</td>";
+        echo "<td>" .$items['postal_address'] . "</td>";
+        echo "<td>" .$items['contact_number'] . "</td>";
+        echo "<td>" .$items['email'] . "</td>";
+        echo "<td>" .$items['description'] . "</td>";
+        echo "<td>"
+            ?>
+            <a href="<?php echo $block->getUrl('firstunit/index/edit').'id/'.$items['id']; ?>" class="action primary">Edit</a>
+            <a href="<?php echo $block->getUrl('firstunit/index/delete').'id/'.$items['id']; ?>" class="action primary">Delete</a>      
+            <?php
+        echo "</td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
